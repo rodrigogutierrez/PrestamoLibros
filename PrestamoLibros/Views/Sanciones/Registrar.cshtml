@@ -1,0 +1,35 @@
+﻿<div class="page-header">
+    <h1>Registrar Sanción</h1>
+</div>
+
+<form class="producto form-horizontal">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label">Alumno:</label>
+            <div class="controls">
+                <select class="input-xlarge" name="AlumnoId">
+                    @foreach (var item in ViewBag.alumnos)
+                    {
+                       <option value="@item.Id">@item.Nombres</option>      
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Descripcion:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="" name="Descripcion">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Fecha:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="date" value="" name="Fecha">
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Registrar</button>
+            <button type="reset" class="btn">Limpiar</button>
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,34 @@
+﻿@model PrestamoLibros.Models.Alumno
+@using MvcFlash.Core.Extensions
+<div class="page-header">
+    <h1>Ver Alumno</h1>
+</div>
+@Html.Flash()
+<form class="producto form-horizontal">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label">Nombres:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.Nombres" name="Nombres" disabled="disabled">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Rut:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.Rut" name="Rut" disabled="disabled">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Número Matrícula:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="number" value="@Model.NumeroMatricula" name="NumeroMatricula" disabled="disabled">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Carrera:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.Carrera.Nombre" name="CarreraId" disabled="disabled">
+            </div>
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,43 @@
+﻿@using MvcFlash.Core.Extensions
+
+<div class="page-header">
+    <h1>Registrar Alumno</h1>
+</div>
+@Html.Flash()
+<form class="producto form-horizontal" method="post" action="@Url.RouteUrl("crear_alumno")">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label">Nombres:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="" name="Nombres">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Rut:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="" name="Rut">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Número Matrícula:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="number" value="" name="NumeroMatricula">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Carrera:</label>
+            <div class="controls">
+                <select class="input-xlarge" name="CarreraId">
+                    @foreach (var item in ViewBag.carreras)
+                    {
+                        <option value="@item.Id">@item.Nombre</option>   
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Registrar</button>
+            <button type="reset" class="btn">Limpiar</button>
+        </div>
+    </fieldset>
+</form>

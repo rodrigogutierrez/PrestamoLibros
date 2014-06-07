@@ -1,0 +1,50 @@
+﻿@model  PrestamoLibros.Models.Alumno
+@using MvcFlash.Core.Extensions
+<div class="page-header">
+    <h1>Editar Alumno</h1>
+</div>
+@Html.Flash()
+<form class="producto form-horizontal" method="post" action="@Url.RouteUrl("actualizar_alumno", new { id = Model.Id })">
+    <fieldset>
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="control-group">
+            <label class="control-label">Nombres:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.Nombres" name="Nombres">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Rut:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.Rut" name="Rut">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Número Matrícula:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="number" value="@Model.NumeroMatricula" name="NumeroMatricula">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Carrera:</label>
+            <div class="controls">
+                <select class="input-xlarge" name="CarreraId">
+                    @foreach (var item in ViewBag.carreras)
+                    {
+                        if (Model.CarreraId == item.Id)
+                        {
+                            <option value="@item.Id" selected="selected">@item.Nombre</option>      
+                        }
+                        else
+                        {
+                            <option value="@item.Id">@item.Nombre</option>   
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+        </div>
+    </fieldset>
+</form>

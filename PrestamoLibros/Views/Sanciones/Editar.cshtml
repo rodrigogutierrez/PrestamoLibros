@@ -1,0 +1,44 @@
+﻿@model PrestamoLibros.Models.Sancion
+
+<div class="page-header">
+    <h1>Editar Sanción</h1>
+</div>
+
+<form class="producto form-horizontal">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label">Alumno:</label>
+            <div class="controls">
+                <select class="input-xlarge" name="AlumnoId">
+                    @foreach (var item in ViewBag.alumnos)
+                    {
+                        if (Model.AlumnoId == item.Id)
+                        {
+                            <option value="@item.Id" selected="selected">@item.Nombres</option>      
+                        }
+                        else
+                        {
+                            <option value="@item.Id">@item.Nombres</option>   
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Descripcion:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.Descripcion" name="Descripcion">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Fecha:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="date" value="@Model.Fecha" name="Fecha">
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <button type="reset" class="btn">Limpiar</button>
+        </div>
+    </fieldset>
+</form>

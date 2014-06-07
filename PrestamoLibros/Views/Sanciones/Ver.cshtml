@@ -1,0 +1,28 @@
+﻿@model PrestamoLibros.Models.Sancion
+
+<div class="page-header">
+    <h1>Ver Sanción</h1>
+</div>
+
+<form class="producto form-horizontal">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label">Alumno:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.Alumno.Nombres" name="Alumno" disabled="disabled">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Descripcion:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.Descripcion" name="Descripcion" disabled="disabled">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Fecha:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.Fecha.ToShortDateString()" name="Fecha" disabled="disabled">
+            </div>
+        </div>
+    </fieldset>
+</form>

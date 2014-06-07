@@ -1,0 +1,49 @@
+﻿@using MvcFlash.Core.Extensions
+@model PrestamoLibros.Models.Libro
+
+<div class="page-header">
+    <h1>Prestar Libro</h1>
+</div>
+@Html.Flash()
+<form class="producto form-horizontal" method="post" action="@Url.RouteUrl("reg_prestamo_libro", new { id = Model.Id })">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label">Nombre:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.Nombre" name="Nombre" disabled="disabled">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Autor:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.Autor" name="Autor" disabled="disabled">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Año:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="number" value="@Model.Anio" name="Anio" disabled="disabled">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">ISBN:</label>
+            <div class="controls">
+                <input class="input-xlarge" type="text" value="@Model.ISBN" name="ISBN" disabled="disabled">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Alumno:</label>
+            <div class="controls">
+                <select class="input-xlarge" name="AlumnoId">
+                    @foreach (var item in ViewBag.alumnos)
+                    {
+                        <option value="@item.Id">@item.Nombres</option>   
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Prestar Libro</button>
+        </div>
+    </fieldset>
+</form>
