@@ -17,6 +17,7 @@ namespace PrestamoLibros.Models
         public string Descripcion { get; set; }
 
         [Required]
+        [DisplayFormat(DataFormatString="dd-MM-yyyy")]
         public DateTime Fecha { get; set; }
 
         public int AlumnoId { get; set; }
