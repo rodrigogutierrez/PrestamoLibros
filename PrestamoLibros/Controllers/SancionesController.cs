@@ -1,4 +1,6 @@
-﻿using PrestamoLibros.Models;
+﻿using MvcFlash.Core;
+using MvcFlash.Core.Extensions;
+using PrestamoLibros.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +50,19 @@ namespace PrestamoLibros.Controllers
                               CantidadSanciones = a.Sanciones.Count
                           }).ToList();
             return View(ranking);
+        }
+
+        public ActionResult Crear(Sancion s)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Sanciones.Add(s);
+                _db.SaveChanges();
+                Flash.Instance.Success("Se ha registrado la sanción correctamente");
+                return RedirectToRoute("sanciones");
+            }
+            Flash.Instance.Error("Ocurrió un error al registrar sanción, intente nuevamente");
+            return RedirectToRoute("registrar_sancion");
         }
     }
 }

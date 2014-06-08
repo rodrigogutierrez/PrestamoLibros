@@ -1,13 +1,14 @@
-﻿<div class="page-header">
+﻿@using MvcFlash.Core.Extensions
+<div class="page-header">
     <h1>Registrar Sanción</h1>
 </div>
-
-<form class="producto form-horizontal">
+@Html.Flash()
+<form class="producto form-horizontal" method="post" action="@Url.RouteUrl("crear_sancion")">
     <fieldset>
         <div class="control-group">
             <label class="control-label">Alumno:</label>
             <div class="controls">
-                <select class="input-xlarge" name="AlumnoId">
+                <select class="input-xlarge" name="AlumnoId" required="required">
                     @foreach (var item in ViewBag.alumnos)
                     {
                        <option value="@item.Id">@item.Nombres</option>      
@@ -18,13 +19,13 @@
         <div class="control-group">
             <label class="control-label">Descripcion:</label>
             <div class="controls">
-                <input class="input-xlarge" type="text" value="" name="Descripcion">
+                <input class="input-xlarge" type="text" value="" name="Descripcion" required="required" maxlength="25">
             </div>
         </div>
         <div class="control-group">
             <label class="control-label">Fecha:</label>
             <div class="controls">
-                <input class="input-xlarge" type="date" value="" name="Fecha">
+                <input class="input-xlarge" type="date" value="" name="Fecha" required="required">
             </div>
         </div>
         <div class="form-actions">

@@ -46,9 +46,7 @@ namespace PrestamoLibros.Controllers
         }
 
         public ActionResult RankingLibrosPorCarrera()
-        {
-            var ranking = from a in _db.Alumnos
-                          join 
+        {            
             return View();
         }
 
