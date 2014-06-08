@@ -9,19 +9,19 @@
         <div class="control-group">
             <label class="control-label">Nombres:</label>
             <div class="controls">
-                <input class="input-xlarge" type="text" value="" name="Nombres">
+                <input class="input-xlarge" type="text" value="" name="Nombres" required title="15 a 30 caracteres" pattern=".{15,30}">
             </div>
         </div>
         <div class="control-group">
             <label class="control-label">Rut:</label>
             <div class="controls">
-                <input class="input-xlarge" type="text" value="" name="Rut">
+                <input class="input-xlarge" type="text" value="" name="Rut" required title="Debe ser un rut valido" pattern="">
             </div>
         </div>
         <div class="control-group">
             <label class="control-label">Número Matrícula:</label>
             <div class="controls">
-                <input class="input-xlarge" type="number" value="" name="NumeroMatricula">
+                <input class="input-xlarge" type="number" value="" name="NumeroMatricula" required title="6 caracteres exactos" max ="999999" min="100000">
             </div>
         </div>
         <div class="control-group">

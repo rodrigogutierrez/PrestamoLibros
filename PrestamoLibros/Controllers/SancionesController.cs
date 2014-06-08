@@ -64,5 +64,10 @@ namespace PrestamoLibros.Controllers
             Flash.Instance.Error("Ocurrió un error al registrar sanción, intente nuevamente");
             return RedirectToRoute("registrar_sancion");
         }
+
+        public ActionResult Actualizar(int id , Sancion s)
+        {
+            return View();
+        }
     }
 }

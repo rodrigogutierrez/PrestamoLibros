@@ -1,11 +1,12 @@
 ﻿@model PrestamoLibros.Models.Sancion
-
+@using MvcFlash.Core.Extensions
 <div class="page-header">
     <h1>Editar Sanción</h1>
 </div>
-
-<form class="producto form-horizontal">
+@Html.Flash()
+<form class="producto form-horizontal" method="post" action="@Url.RouteUrl("actualizar_sancion", new { id = Model.Id })">
     <fieldset>
+        <input type="hidden" name="Id" value="@Model.Id" />
         <div class="control-group">
             <label class="control-label">Alumno:</label>
             <div class="controls">
@@ -27,7 +28,7 @@
         <div class="control-group">
             <label class="control-label">Descripcion:</label>
             <div class="controls">
-                <input class="input-xlarge" type="text" value="@Model.Descripcion" name="Descripcion">
+                <input class="input-xlarge" type="text" value="@Model.Descripcion" name="Descripcion" pattern=".{10,25}" required title="10 a 25 caracteres">
             </div>
         </div>
         <div class="control-group">
