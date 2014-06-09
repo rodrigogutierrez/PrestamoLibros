@@ -1,4 +1,5 @@
-﻿<div class="page-header">
+﻿@model IEnumerable<PrestamoLibros.Models.RankingLibrosPorCarreraViewModel>
+<div class="page-header">
     <h1>Ranking de Libros por Carrera</h1>
 </div>
 
@@ -10,11 +11,14 @@
             <th>Cantidad de Libros<th>
         </tr>
     </thead>
-    <tbody> 
-        <tr>
-            <td>Texto</td>
-            <td>Texto</td>
-            <td>Texto</td>
-        </tr>        
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Carrera</td>
+                <td>@item.CantidadLibros</td>
+            </tr>          
+        } 
     </tbody>
 </table>
