@@ -67,7 +67,15 @@ namespace PrestamoLibros.Controllers
 
         public ActionResult Actualizar(int id , Sancion s)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _db.Entry(s).State = System.Data.EntityState.Modified;
+                _db.SaveChanges();
+                Flash.Instance.Success("La sanción se actualizó correctamente");
+                return RedirectToRoute("ver_sancion", new { id = id });
+            }
+            Flash.Instance.Error("Ocurrió un error actualizando la sanción, intente nuevamente");
+            return RedirectToRoute("editar_sancion", new { id = id });
         }
     }
 }
