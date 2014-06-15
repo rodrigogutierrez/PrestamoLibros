@@ -33,4 +33,4 @@ namespace PrestamoLibros.Models
 
         public virtual ICollection<Prestado> LibroPrestado { get; set; }
     }
-}
+}   

@@ -21,7 +21,7 @@
         <div class="control-group">
             <label class="control-label">Fecha:</label>
             <div class="controls">
-                <input class="input-xlarge" type="text" value="@Model.Fecha.ToShortDateString()" name="Fecha" disabled="disabled">
+                <input class="input-xlarge" type="date" value="@Model.Fecha.ToString("yyyy'-'MM'-'dd")" name="Fecha" disabled="disabled">
             </div>
         </div>
     </fieldset>

@@ -47,16 +47,14 @@ namespace PrestamoLibros.Controllers
 
         public ActionResult RankingLibrosPorCarrera()
         {
-            //var ranking = (from pre in _db.Prestados
-            //               where pre.Alumno.CarreraId > 0
-            //               group pre.Alumno.Carrera.Nombre by pre.Alumno.CarreraId into g
-            //               select new RankingLibrosPorCarreraViewModel
-            //               {
-            //                   Id = g.Key,
-            //                   CantidadLibros = g.Count()
-            //               }).ToList();
-            
-            return View(/*ranking*/);
+            var ranking = (from a in _db.Alumnos
+                          select new RankingLibrosPorCarreraViewModel
+                          {
+                              Id = a.CarreraId,
+                              Carrera = a.Carrera.Nombre,
+                              CantidadLibros = a.LibroPrestado.Count
+                          }).ToList();
+            return View(ranking);
         }
 
         public ActionResult HistorialPrestamos(int id)

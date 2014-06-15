@@ -4,7 +4,7 @@
     <h1>Editar Libro</h1>
 </div>
 @Html.Flash()
-<form class="producto form-horizontal" method="post" action="@Url.RouteUrl("actualizar_libro")">
+<form class="producto form-horizontal" method="post" action="@Url.RouteUrl("actualizar_libro", new { id = Model.Id })">
     <fieldset>
         <input type="hidden" name="Id" value="@Model.Id" />
         <div class="control-group">
